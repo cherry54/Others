@@ -1,0 +1,36 @@
+def revsort(arr,start,end):
+    if(start>end):
+        return
+    i=start
+    n=int((end+start)/2)
+    n+=1
+    for i in range(n):
+        arr[i],arr[(start+end-i)%len(arr)]=arr[(start+end-i)%len(arr)],arr[i]
+def nextpermutation(arr):
+    n=len(arr)
+    ind=n-1
+    if(n<2):
+        return
+    while(ind > 0):
+        if(arr[ind-1]<arr[ind]):
+            break
+        ind-=1 
+    if(ind==0):
+        revsort(arr,0,n-1)
+        return
+    val=arr[ind-1]
+    j=n-1
+    while(j>=ind):
+        if(arr[ind-1]<arr[j]):
+            break
+        j-=1 
+    arr[j],arr[ind-1]=arr[ind-1],arr[j]
+    revsort(arr,ind,n-1)
+    print(arr)
+a=[1,2,3]
+nextpermutation(a)
+b=[3,2,1]
+nextpermutation(b)
+print(b)
+c=[1,1,5]
+nextpermutation(c)
