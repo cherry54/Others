@@ -1,0 +1,11 @@
+def twosum(arr,target):
+    hashTable = {}
+    for i in range(len(arr)):
+        comp=target-arr[i]
+        if comp in hashTable:
+            print("index are:",i," and ",hashTable[comp])
+            print("numbers are:",arr[i]," and ",arr[hashTable[comp]])
+        hashTable[arr[i]]=i
+arr = [1, 2, 2, 4, 5, 6]
+num = 4
+twosum(arr,num)
