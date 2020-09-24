@@ -1,0 +1,15 @@
+def maxarea(arr):
+    left=0
+    right=len(arr)-1
+    ans=0
+    while left < right:
+        ans=max(ans,min(arr[left],arr[right])*(right-left))
+        if arr[left] < arr[right]:
+            left+=1
+        else:
+            right-=1
+    print(ans)
+arr = [3, 1, 2, 4, 5]
+maxarea(arr)
+b= [1, 5, 4, 3]
+maxarea(b)
